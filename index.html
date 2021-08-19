@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="viewport" content="initial-scale=1.0, máximum-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 , maximum-scale=1">
     <title>La Tiendita</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -14,23 +13,23 @@
     <h1 class="titulo">LA TIENDITA</h1>
     <div class="estante">
         <div class="contenedor">
-            <div class="drinksoda"><img src="img/01 Cola.png" draggable="true"></div>
-            <div class="drinksoda"><img src="img/01 Cola.png"></div>
-            <div class="drinksoda"><img src="img/01 Cola.png"></div>
-            <div class="drinksoda"><img src="img/01 Cola.png"></div>
-            <div class="drinksoda"><img src="img/01 Cola.png"></div>
+            <div class="drinksoda"><img id="coke1" class="Cola" src="img/01 Cola.png" draggable="true" ondragstart="drag(event)"></div>
+            <div class="drinksoda"><img id="coke2" class="Cola" src="img/01 Cola.png" draggable="true" ondragstart="drag(event)"></div>
+            <div class="drinksoda"><img id="coke3" class="Cola" src="img/01 Cola.png" draggable="true" ondragstart="drag(event)"></div>
+            <div class="drinksoda"><img id="coke4" class="Cola" src="img/01 Cola.png" draggable="true" ondragstart="drag(event)"></div>
+            <div class="drinksoda"><img id="coke5" class="Cola" src="img/01 Cola.png" draggable="true" ondragstart="drag(event)"></div>
 
-            <div class="drinksoda"><img src="img/03 Energy.png"></div>
-            <div class="drinksoda"><img src="img/03 Energy.png"></div>
-            <div class="drinksoda"><img src="img/03 Energy.png"></div>
-            <div class="drinksoda"><img src="img/03 Energy.png"></div>
-            <div class="drinksoda"><img src="img/03 Energy.png"></div>
+            <div class="drinksoda"><img id="energy1" class="Energy" src="img/03 Energy.png" draggable="true" ondragstart="drag(event)"></div>
+            <div class="drinksoda"><img id="energy2" class="Energy" src="img/03 Energy.png" draggable="true" ondragstart="drag(event)"></div>
+            <div class="drinksoda"><img id="energy3" class="Energy" src="img/03 Energy.png" draggable="true" ondragstart="drag(event)"></div>
+            <div class="drinksoda"><img id="energy4" class="Energy" src="img/03 Energy.png" draggable="true" ondragstart="drag(event)"></div>
+            <div class="drinksoda"><img id="energy5" class="Energy" src="img/03 Energy.png" draggable="true" ondragstart="drag(event)"></div>
 
-            <div class="drinksoda"><img src="img/04 FreshLime.png"></div>
-            <div class="drinksoda"><img src="img/04 FreshLime.png"></div>
-            <div class="drinksoda"><img src="img/04 FreshLime.png"></div>
-            <div class="drinksoda"><img src="img/04 FreshLime.png"></div>
-            <div class="drinksoda"><img src="img/04 FreshLime.png"></div>
+            <div class="drinksoda"><img id="FreshLime1" class="FreshLime" src="img/04 FreshLime.png"></div>
+            <div class="drinksoda"><img id="FreshLime2" class="FreshLime" src="img/04 FreshLime.png"></div>
+            <div class="drinksoda"><img id="FreshLime3" class="FreshLime" src="img/04 FreshLime.png"></div>
+            <div class="drinksoda"><img id="FreshLime4" class="FreshLime" src="img/04 FreshLime.png"></div>
+            <div class="drinksoda"><img id="FreshLime5" class="FreshLime" src="img/04 FreshLime.png"></div>
 
             <div class="drinksoda"><img src="img//05 SweetPineapple.png"></div>
             <div class="drinksoda"><img src="img//05 SweetPineapple.png"></div>
@@ -81,10 +80,10 @@
         <div class="factura">
             <h2>CAJA</h2>
             <div class="screen">Total:$ 150.0</div>
-            <table>
+            <table id="ListaProductos">
                 <thead>
                     <tr>
-                        <th>X</th>
+                        <th></th>
                         <th>Descripcion</th>
                         <th>Precio</th>
                         <th>Cantidad</th>
@@ -107,7 +106,7 @@
             </table>
         </div>
 
-        <div class="cesta"><img src="img/10 Cesta.jpg"></div>
+        <div class="cesta"><img src="img/10 Cesta.jpg" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
     </div>
 </div>
 
