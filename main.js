@@ -31,22 +31,33 @@ class Product{
 
 //Clase CajaUI--------------------------
 class CajaUI{
-  addProduct(producto){
+  addProduct(producto){    
+    //renderize
     let tabla = document.querySelector("#ListaProductos > tbody"); 
-    //tabla.innerHTML
-    tabla.innerHTML= `
+    tabla.innerHTML+= `
       <tr>
           <td><button class="delete"></button></td> 
           <td>${producto.Name}</td>
           <td>${producto.Price}</td>
-          <td>01</td>
-      </tr>`
-  }
-  deleteProduct(){
+      </tr>`;
+    
+      // Handler event
+      var items = document.getElementsByClassName('delete');
+      for (var i = 0; i < items.length; i++) {
+        items[i].addEventListener('click', deletepro);
+      }
 
+      this.sumaTotal(producto);
   }
-  sumaTotal(){
-
+  sumaTotal(pro){
+    const stotal=pro.Price + parseFloat(document.querySelector("#FactTotal").textContent);
+    const stotala=parseFloat(stotal).toFixed(2);
+    //renderize
+    document.querySelector("#FactTotal").textContent = stotala;
+  }
+  restaTotal(pre){
+    const stotal= parseFloat(document.querySelector("#FactTotal").textContent) - parseFloat(pre);
+    document.querySelector("#FactTotal").textContent = stotal;
   }
 }
 
@@ -75,5 +86,17 @@ class CajaUI{
     UICaja.addProduct(Prod);
   }
 
+  function deletepro(ev){
+    ev.preventDefault();
+    const buttonClicked = ev.target;
+
+    preciorestar=buttonClicked.closest('td').nextElementSibling.nextElementSibling.textContent;
+    
+    buttonClicked.closest('tr').remove();
+    const UICaja = new CajaUI;
+    UICaja.restaTotal(preciorestar);
+  }
+
 //DOM Event Handlers-------------------------------
+
 
