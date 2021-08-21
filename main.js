@@ -1,4 +1,4 @@
-
+//*************************************DB**************************************************** */
 //DB Lista de Precios-----------------------
 var listaPrecios=[
   {producto: "Cola", Precio : 2.5},
@@ -10,6 +10,8 @@ var listaPrecios=[
   {producto: "Coconut", Precio : 2.6},
   {producto: "Soda", Precio : 1.7}
 ]
+
+//**************************************OBJETOS************************************************ */
 //Clase Producto en Cesta
 class Product{
   constructor(ProdId,ProdName){
@@ -29,7 +31,7 @@ class Product{
   }
 }
 
-//Clase CajaUI--------------------------
+//Clase Caja--------------------------
 class CajaUI{
   addProduct(producto){    
     //renderize
@@ -57,11 +59,14 @@ class CajaUI{
   }
   restaTotal(pre){
     const stotal= parseFloat(document.querySelector("#FactTotal").textContent) - parseFloat(pre);
-    document.querySelector("#FactTotal").textContent = stotal;
+    const stotala=parseFloat(stotal).toFixed(2);
+    document.querySelector("#FactTotal").textContent = stotala;
   }
 }
 
 
+
+//**************************************DOM*****************************************************
 //DOM Event-Functions----------------------------
   function drag(ev) {
     ev.dataTransfer.setData("text", ev.target.id);
@@ -71,16 +76,17 @@ class CajaUI{
   }  
   function drop(ev) {
     ev.preventDefault();
+    
+    //modifico el DOM
     var data = ev.dataTransfer.getData("text");
     document.getElementById(data).style.visibility="hidden";
     
+    //creo objeto producto en la cesta
     const idProduct=document.getElementById(data).id;// id del producto arrastrado
     const NameProduct=document.getElementById(data).className;// nombre producto arrastrado
     const Prod = new Product (idProduct, NameProduct); //creo el producto arrastrado
     Prod.getMyPrice();// Busco el precio del producto arrastrado en la lista de precios
     
-        console.log(Prod);
-
     //Renderizar el producto arrastrado en el Cajero (carrito de compras)
     const UICaja = new CajaUI;
     UICaja.addProduct(Prod);
@@ -96,7 +102,3 @@ class CajaUI{
     const UICaja = new CajaUI;
     UICaja.restaTotal(preciorestar);
   }
-
-//DOM Event Handlers-------------------------------
-
-
